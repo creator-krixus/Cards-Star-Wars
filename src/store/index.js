@@ -5,6 +5,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+      beru: "../assets/images/r5-d4.png",
+
   },
   mutations: {
   },
