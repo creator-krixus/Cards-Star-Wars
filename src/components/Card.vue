@@ -1,9 +1,9 @@
 <template>
     <div class="container">
         <div>
-            <b-card
+            <b-card                 
                 :title="person.name"
-                :sub-title="planet.name"
+                :sub-title="person.homeworld"
                 img-src="https://picsum.photos/600/300/?image=25"
                 img-alt="Image"
                 img-top
@@ -12,20 +12,18 @@
                 class="mb-2"
             >
                 <b-card-text>
-                     ⬆⬆⬆  Es su planeta de origen
+                    👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆  En esta url esta el nombre de su planeta de origen y no se, como mostrarlo.
                 </b-card-text>
             
-                <b-button href="#" variant="primary">Go somewhere</b-button>
+                <b-button :href="`/about/${person.name}`" variant="primary">Ver mas</b-button>
             </b-card>
         </div>
     </div>
 </template>
+
 <script>
 
 export default {
-    props: ['person','planet'],
-    
-
-}
-
+    props: ['person']
+    }
 </script>
