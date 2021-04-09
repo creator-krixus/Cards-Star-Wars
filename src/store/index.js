@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -17,15 +18,15 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    async data({commit}){
+    async traer({commit}){
       try{
         await axios.get('https://swapi.dev/api/people')
           .then(res => {
             const data = res.data
-            this.people = data
+            this.people = data.results
             commit('setPeople', data.results)
- /*            console.log(data)
-            console.log(data.results) */
+            console.log(data)
+            console.log(data.results)
           })
       }catch(error){
         console.log("Error")
@@ -38,7 +39,7 @@ export default new Vuex.Store({
             const data = res.data
             this.planets = data.results
             commit('setPlanets', data.results)
-            console.log(this.planets)
+/*             console.log(this.planets) */
           })
       }catch(error){
         console.log("Error")

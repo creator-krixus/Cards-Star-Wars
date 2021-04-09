@@ -15,6 +15,8 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+/*   background-image: url('../src/assets/images/war.png');
+  background-size: contain; */
 }
 
 #nav {
