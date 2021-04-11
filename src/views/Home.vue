@@ -8,7 +8,11 @@
 
       <div class="row align-items-start">
             <div v-for="(person, index) of people" :key="index">
-                <Card :person="person" />
+                <Card :person="person">
+                  <div>
+                    {{ planets[index].name }}
+                  </div>
+                </Card>
             </div>
       </div>
 
@@ -34,7 +38,8 @@ export default {
     return {
       people: [],
       page: 1,
-      pages: 8
+      pages: 20,
+      planets: []
     }
   },
   methods: {
@@ -43,13 +48,19 @@ export default {
         page: this.page
       }
       try{
-        await axios.get('https://swapi.dev/api/people', { params })
+        await axios.get('https://swapi.dev/api/people/', { params })
           .then(res => {
             const data = res.data
-            this.people = data.results
             console.log(data)
+            this.people = data.results
+            console.log(this.people)
           })
-
+        await axios.get('https://swapi.dev/api/planets/', { params })
+          .then(res => {
+            const resultado = res.data
+            this.planets = resultado.results
+            console.log(this.planets)
+          })
       }catch(error){
         console.log("Error")
       }
