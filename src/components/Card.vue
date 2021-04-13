@@ -11,12 +11,13 @@
                 style="max-width: 20rem;"
                 class="mb-2"
             >
+        <!-- Este slot es el usado para poder introducir el 
+        nombre del planeta de origen del personaje -->            
                 <slot></slot>
-
                 <b-card-text>
-                    👆👆👆👆👆👆👆
+                    👆🪐🌌🌍🌏🌌🪐👆
                 </b-card-text>
-
+<!-- Boton que captura la ruta dinamica para redireccionar hacia la vista del personaje -->
                 <b-button :href="`/about/${person.name}`" variant="primary">Ver mas</b-button>
             </b-card>
         </div>
@@ -24,8 +25,9 @@
 </template>
 
 <script>
-
 export default {
+    /* Propiedad que puede ser leida por el componente padre para darle las propiedades 
+    dinamicas a la card */
     props: ['person'],
     }
 </script>
