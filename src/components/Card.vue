@@ -3,7 +3,7 @@
         <div>
             <b-card                
                 :title="person.name"
-                sub-title="Planeta de origen:"
+                sub-title="Home planet:"
                 img-src="https://i.servimg.com/u/f38/12/68/38/30/logo_r10.jpg"
                 img-alt="Image"
                 img-top
@@ -18,7 +18,7 @@
                     👆🪐🌌🌍🌏🌌🪐👆
                 </b-card-text>
 <!-- Boton que captura la ruta dinamica para redireccionar hacia la vista del personaje -->
-                <b-button :href="`/about/${person.name}`" variant="primary">Ver mas</b-button>
+                <b-button :href="`/about/${person.name}`" variant="info">Show Info</b-button>
             </b-card>
         </div>
     </div>
