@@ -7,8 +7,7 @@ de la home page solo tienen imagen los primeros 10 -->
 
         <div v-if="$route.params.name == 'Luke Skywalker'">
             <img src="@/assets/images/Luke Skywalker.png" width="300" height="250">
-        </div>
-        
+        </div>   
         <div v-if="$route.params.name == 'C-3PO'">
             <img src="@/assets/images/c-3po.png" width="300" height="250">
         </div>
@@ -148,6 +147,10 @@ export default {
                             this.personaje = data.results
                             console.log(this.personaje) 
                         })
+// Iterador usado para capturar cada una de las direcciones http que me regresa el arrglo de
+// vehiculos y asi poderlos pasar dinamicamente al llamado de la API y traer sus datos y
+// poderlos mostrar en pantalla, solo muestro 2 vehiculos.
+
                      for (let i=0; i<this.personaje.length; i++){
                         if (this.personaje[i].name == `${this.$route.params.name}`){
                             this.carOne = this.personaje[i].vehicles[0],

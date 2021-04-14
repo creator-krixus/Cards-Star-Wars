@@ -3,20 +3,18 @@
         <div>
             <b-card                
                 :title="person.name"
-                sub-title="Home planet:"
-                img-src="https://i.servimg.com/u/f38/12/68/38/30/logo_r10.jpg"
-                img-alt="Image"
                 img-top
                 tag="article"
                 style="max-width: 20rem;"
                 class="mb-2"
-            >
-        <!-- Este slot es el usado para poder introducir el 
-        nombre del planeta de origen del personaje -->            
+            >      
+<!-- Este slot es el usado para poder introducir el 
+nombre del planeta de origen del personaje  y la imagen de su personaje-->            
                 <slot></slot>
                 <b-card-text>
                     👆🪐🌌🌍🌏🌌🪐👆
                 </b-card-text>
+                
 <!-- Boton que captura la ruta dinamica para redireccionar hacia la vista del personaje -->
                 <b-button :href="`/about/${person.name}`" variant="info">Show Info</b-button>
             </b-card>
