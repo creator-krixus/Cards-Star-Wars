@@ -9,12 +9,14 @@
 </template>
 
 <style lang="scss">
+@use './styles/variables';
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: variables.$font-family;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: variables.$primary;
   background-image: url('https://wallpaperstock.net/wallpapers/thumbs1/30921.png');
   background-size: contain;
 }
@@ -24,10 +26,10 @@
 
   a {
     font-weight: bold;
-    color: #2c3e50;
+    color: variables.$primary;
 
     &.router-link-exact-active {
-      color: white;
+      color: variables.$color-router;
     }
   }
 }

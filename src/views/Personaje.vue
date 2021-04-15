@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Character name:<br>{{ $route.params.name }}</h1>
+        <h1 class="title-header">Character name:<br>{{ $route.params.name }}</h1>
         
 <!-- Divs usados para mostrar las imagenes de cada uno de los 10 primeros personajes 
 de la home page solo tienen imagen los primeros 10 -->
@@ -95,23 +95,23 @@ de la home page solo tienen imagen los primeros 10 -->
         <div v-if="page === 1"> 
             <button v-if="$route.params.name == 'Palpatine'" @click="changePage(page + 1)">Show data</button>
         </div>                                                                                                                                                                                          
-        <h2>Characteristics</h2><hr>
+        <h2 class="subtitle">Characteristics</h2><hr>
 
         <div v-for="(persona, index) of personaje" :key="index">
 
-            <h2 v-if="(persona.name === $route.params.name)">
-                <p>Gender: {{persona.gender}}</p>
-                <p>Eye Color: {{persona.eye_color}}</p>
-                <p>Hair color: {{persona.hair_color}}</p>
-                <p>height: {{persona.height}} cms</p>
+            <h2 v-if="(persona.name === $route.params.name)" class="subtitle">
+                <p class="text">Gender: {{persona.gender}}</p>
+                <p class="text">Eye Color: {{persona.eye_color}}</p>
+                <p class="text">Hair color: {{persona.hair_color}}</p>
+                <p class="text">height: {{persona.height}} cms</p>
             </h2>
        
 <!-- En esta parte del codigo muestro las peliculas en las cuales aparece el personaje 
 llamado desde la home page -->                                                                                
         
-            <h2 v-if="(persona.name === $route.params.name)">
+            <h2 v-if="(persona.name === $route.params.name)" class="subtitle">
                 Films:
-                <ul v-for="(film, episode_id) of films" :key="episode_id">
+                <ul v-for="(film, episode_id) of films" :key="episode_id" class="list">
                     <li v-if="(persona.films[episode_id] == film.url)">
                         {{ film.title }}
                     </li>
@@ -120,24 +120,24 @@ llamado desde la home page -->
      
 <!-- Aqui se deberian de mostrar los vehiculos usaddos por los personajes -->        
        
-            <h2 v-if="(persona.name === $route.params.name)">
+            <h2 v-if="(persona.name === $route.params.name)" class="subtitle">
                 Vehicles:
-                <p v-if="persona.vehicles == ''"> 
+                <p v-if="persona.vehicles == ''" class="text"> 
                     This character does not drive any vehicle
                 </p>
-                <p v-else>{{ carDriverOne }}<br>
+                <p class="text" v-else>{{ carDriverOne }}<br>
                           {{ carDriverTwo }}            
                 </p>  
             </h2>
         
 <!-- En esta parte nos muestran las naves espaciales -->               
        
-            <h2 v-if="(persona.name === $route.params.name)">
+            <h2 v-if="(persona.name === $route.params.name)" class="subtitle">
                 Starships:
-                <p v-if="persona.starships == ''">
+                <p v-if="persona.starships == ''" class="text">
                     This character does not drive any ships
                 </p>
-                <p v-else>
+                <p v-else class="text">
                     <!-- {{ persona.starships }}<br> -->
                     {{ starshipDriveOne }}<br>
                     {{ starshipDriveTwo }}<br>
@@ -304,24 +304,28 @@ export default {
         }
 }
 </script>
-<style scoped>
-h2{
-    font-size: 40px;
-    color: white;
-    margin-bottom: 30px;
+<style scoped lang="scss">
+@use 'styles/variables';
+
+.subtitle{
+    font-size: variables.$font-size-title;
+    color: variables.$color-router;
+    margin-bottom: variables.$margin-b;
+
+   &.list{
+        font-size: variables.$font-size-text;
+        list-style: none
+    }
 }
-h2 ul {
-    font-size: 25px;
-    list-style: none
+.title-header{
+    color: variables.$color-router;
 }
-h1{
-    color: white;
-}
+// A este contenedor no le puse clase por que son muchos y se me olvido ponerla desde el primero
 div{
-    margin-bottom: 30px;
+    margin-bottom: variables.$margin-b;
 }
-p{
-    font-size: 25px;
+.text{
+    font-size: variables.$font-size-text;
 }
 button{
     background: blue;
