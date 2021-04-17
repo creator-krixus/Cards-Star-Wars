@@ -42,7 +42,7 @@ de la home page solo tienen imagen los primeros 10 -->
             <button v-if="$route.params.name == 'Anakin Skywalker'" @click="changePage(page + 1)">Show data</button>
         </div>
                     <div v-if="$route.params.name == 'Wilhuff Tarkin'">
-                        <img src="https://static.wikia.nocookie.net/starwarsrebels/images/4/44/Tarkin-HS.jpg/revision/latest/top-crop/width/360/height/450?cb=20150202194757" width="250" height="200">
+                        <img src="https://i.pinimg.com/474x/6f/a5/c4/6fa5c4d82ef9126e8843521b13b083d2.jpg" width="250" height="200">
                     </div>
         <div v-if="page === 1"> 
             <button v-if="$route.params.name == 'Wilhuff Tarkin'" @click="changePage(page + 1)">Show data</button>
@@ -201,11 +201,11 @@ export default {
                             this.personaje = data.results
                             console.log(this.personaje) 
                         })
-// Iterador usado para capturar cada una de las direcciones http que me regresa el arrglo de
+// Iterador usado para capturar cada una de las direcciones http que me regresa el arreglo de
 // vehiculos y asi poderlos pasar dinamicamente al llamado de la API y traer sus datos y
 // poderlos mostrar en pantalla, solo muestro 2 vehiculos.
 
-                     for (let i=0; i<this.personaje.length; i++){
+                      for (let i=0; i<this.personaje.length; i++){
                         if (this.personaje[i].name == `${this.$route.params.name}`){
                             this.carOne = this.personaje[i].vehicles[0],
                             this.carTwo = this.personaje[i].vehicles[1]
@@ -244,8 +244,8 @@ export default {
                             const data = res.data
                             console.log(data.name)
                             this.starshipDriveTwo = (data.name)
-                        }) 
-/*                    await axios.get(`${this.starshipThree}`)
+                        })  
+                    await axios.get(`${this.starshipThree}`)
                         .then(res => {
                             const data = res.data
                             console.log(data.name)
@@ -265,14 +265,14 @@ export default {
                         .then(res => {
                             const data = res.data
                             this.starshipDriveSix = (data.name)
-                        })   */
+                        })   
                                                                                                                                                 
-/*                       await axios.get(`https://swapi.dev/api/films/`)
+                       await axios.get(`https://swapi.dev/api/films/`)
                         .then(res => {
                             const data = res.data
                             this.films = data.results
                             console.log(this.films)
-                        }) */ 
+                        })  
                                         
                 }catch(error){
                     console.log(error)
