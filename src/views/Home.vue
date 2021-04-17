@@ -1,11 +1,13 @@
 <template>
   <div class="container">
     <!-- Paginador de la home page este aparece en la parte superior  -->
-    <button @click="changePage(page - 1)" class="p-2 mb-4">Prev</button>
-        <button class="btn-show" @click="changePage(page - 1)">{{ page - 1 }}</button>
-            <button class="btn-show">{{ page }}</button>
-        <button class="btn-show" @click="changePage(page + 1)">{{ page + 1 }}</button>
+    
+    <button @click="changePage(page - 1)" class="p-2 mb-4" v-if="page >= 2">Prev</button>
+        <button class="btn-show" @click="changePage(page - 1)" v-if="page >= 2">{{ page - 1 }}</button>
+            <button class="btn-show" v-if="page >= 2">{{ page }}</button>
+        <button class="btn-show" @click="changePage(page + 1)" v-if="page >= 2">{{ page + 1 }}</button>
     <button @click="changePage(page + 1)" class="p-2 mb-4">next</button>
+
 <!-- En esta parte del codigo recorremos los datos traidos de la API y los pasamos
 al componente card -->
       <div class="row align-items-start container ml-5">
@@ -109,10 +111,11 @@ al componente card -->
             </div>
       </div>
     <!-- Paginador de la home page este aparece en la parte inferior  -->
-    <button @click="changePage(page - 1)" class="p-2 mb-4">Prev</button>
-        <button class="btn-show" @click="changePage(page - 1)">{{ page - 1 }}</button>
-            <button class="btn-show">{{ page }}</button>
-        <button class="btn-show" @click="changePage(page + 1)">{{ page + 1 }}</button>
+    <button @click="changePage(page - 1)" class="p-2 mb-4" v-if="page >= 2">Prev</button>
+        <button class="btn-show" @click="changePage(page - 1)" v-if="page >= 2">{{ page - 1 }}</button>
+            <button class="btn-show" v-if="page >= 2">{{ page }}</button>
+        <button class="btn-show" @click="changePage(page + 1)" v-if="page >= 2">{{ page + 1 }}</button>
+    <button @click="changePage(page + 1)" class="p-2 mb-4" v-if="page >= 9">home</button>    
     <button @click="changePage(page + 1)" class="p-2 mb-4">next</button>  
   </div>
 </template>
